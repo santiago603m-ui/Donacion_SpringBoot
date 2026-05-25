@@ -8,6 +8,5 @@ import org.mapstruct.Mapper;
 @Mapper(componentModel = "spring")
 public interface DonanteMapper {
     Donante toEntity(DonanteRequest request);
-
     DonanteResponse toDto(Donante donante);
 }

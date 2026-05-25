@@ -9,7 +9,6 @@ import org.mapstruct.Mapping;
 @Mapper(componentModel = "spring")
 public interface DonacionMapper {
 
-    // Ignoramos estos campos porque los setearemos manualmente en el Service
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "donante", ignore = true)
     @Mapping(target = "fechaDonacion", ignore = true)
