@@ -36,7 +36,6 @@ public class ConsentimientoServiceImpl implements ConsentimientoService {
         consentimiento.setFirmaBase64(request.getFirmaBase64());
         consentimiento.setFechaFirma(LocalDate.now());
 
-        // Actualizamos también al donante para que refleje el consentimiento
         donante.setAceptaConsentimiento(true);
         donante.setFirmaConsentimiento("REGISTRADO_EN_TABLA_CONSENTIMIENTO");
         donanteRepository.save(donante);
