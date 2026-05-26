@@ -35,14 +35,14 @@ public class DonanteServiceImpl implements DonanteService {
         Donante donante = donanteMapper.toEntity(request);
         Donante donanteGuardado = donanteRepository.save(donante);
 
-        return donanteMapper.toDto(donanteGuardado);
+        return donanteMapper.toResponse(donanteGuardado);
     }
 
     @Override
     @Transactional(readOnly = true)
     public List<DonanteResponse> obtenerTodos() {
         return donanteRepository.findAll().stream()
-                .map(donanteMapper::toDto)
+                .map(donanteMapper::toResponse)
                 .collect(Collectors.toList());
     }
 
@@ -51,7 +51,7 @@ public class DonanteServiceImpl implements DonanteService {
     public DonanteResponse obtenerPorId(Long id) {
         Donante donante = donanteRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Donante no encontrado con ID: " + id));
-        return donanteMapper.toDto(donante);
+        return donanteMapper.toResponse(donante);
     }
 
     @Override
